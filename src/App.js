@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { createContext, useState,useContext } from 'react';
 import './App.css';
+import CheapSwitchContainer from './components/CheapSwitchContainer';
+import FastSwitchContainer from './components/FastSwitchContainer';
+import GoodSwitchContainer from './components/GoodSwitchContainer';
 
+export const BtnContext=React.createContext()
 function App() {
+
+  const [good,setGood] = useState(false);
+  const [fast,setFast] = useState(false);
+  const [cheap,setCheap] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <BtnContext.Provider value={{goodness:[good,setGood],fastness:[fast,setFast],cheapness:[cheap,setCheap]}}>
+        <GoodSwitchContainer></GoodSwitchContainer>
+        <FastSwitchContainer></FastSwitchContainer>
+        <CheapSwitchContainer></CheapSwitchContainer>
+      </BtnContext.Provider>
     </div>
   );
 }
