@@ -5,10 +5,6 @@ import {  BtnContext } from '../App';
 const CheapSwitchContainer = () => {
 const btnContext = useContext(BtnContext);
 const cheapness=btnContext.cheapness[0];
-const setCheap=()=>{
-  const cheapSetter=btnContext.cheapness[1];
-  cheapSetter(!btnContext.cheapness[0])
-}
   return (
     <BtnContext.Consumer>
       {value=>(
@@ -18,9 +14,6 @@ const setCheap=()=>{
           onColor="#d85656"
           />
           <span className='switch-span'>Cheap</span>
-        <button onClick={setCheap}>
-        Click me </button>
-
       </div>
       )}
     </BtnContext.Consumer>

@@ -18,8 +18,6 @@ const setFast=()=>{
           onColor="#4070bd"
           />
           <span className='switch-span'>Fast</span>
-          <button onClick={setFast}>
-        Click me </button>
       </div>
       )}
     </BtnContext.Consumer>

@@ -5,12 +5,24 @@ const Switch = ({ isOn ,onColor,setGood}) => {
 
   const btnContext=useContext(BtnContext);
   const handleToggle=()=>{
+    const goodSetter=btnContext.goodness[1];
+    const fastSetter=btnContext.fastness[1];
     const cheapSetter=btnContext.cheapness[1];
-    cheapSetter(!btnContext.cheapness[0])    
 
-    if(onColor==='#4070bd' && isOn===true){
-      console.log('handling toggle')
+    const goodness=btnContext.goodness[0];
+    const fastness=btnContext.fastness[0];
+    const cheapness=btnContext.cheapness[0];
+
+    if(onColor=='#0fbd44'){
+      goodSetter(!btnContext.goodness[0])    
     }
+    if(onColor==='#4070bd'){
+      fastSetter(!btnContext.fastness[0])    
+    }
+    if(onColor=='#d85656'){
+      cheapSetter(!btnContext.cheapness[0])    
+    }
+
   }
 
   useEffect(() => {
@@ -67,7 +79,7 @@ const Switch = ({ isOn ,onColor,setGood}) => {
         style={{ background: isOn && onColor }}
         className="react-switch-label"
         htmlFor={`react-switch-new`}
-        onClick={setGood}
+        onClick={handleToggle}
       >
         <span className={`react-switch-button`} />
       </label>
